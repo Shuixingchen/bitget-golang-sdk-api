@@ -1,6 +1,7 @@
 package v2
 
 import (
+	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/internal"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/common"
 )
@@ -9,8 +10,8 @@ type MixOrderClient struct {
 	BitgetRestClient *common.BitgetRestClient
 }
 
-func (p *MixOrderClient) Init() *MixOrderClient {
-	p.BitgetRestClient = new(common.BitgetRestClient).Init()
+func (p *MixOrderClient) Init(config config.Config) *MixOrderClient {
+	p.BitgetRestClient = new(common.BitgetRestClient).Init(config)
 	return p
 }
 

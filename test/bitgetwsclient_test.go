@@ -14,7 +14,7 @@ func TestBitgetWsClient_New(t *testing.T) {
 		fmt.Println("default error:" + message)
 	}, func(message string) {
 		fmt.Println("default error:" + message)
-	})
+	}, conf)
 
 	var channelsDef []model.SubscribeReq
 	subReqDef1 := model.SubscribeReq{

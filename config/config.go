@@ -1,14 +1,22 @@
 package config
 
-import "github.com/Shuixingchen/bitget-golang-sdk-api/constants"
+// const (
+// 	BaseUrl = "https://api.bitget.com"
+// 	WsUrl   = "wss://ws.bitget.com/mix/v1/stream"
 
-const (
-	BaseUrl = "https://api.bitget.com"
-	WsUrl   = "wss://ws.bitget.com/mix/v1/stream"
+// 	ApiKey        = ""
+// 	SecretKey     = ""
+// 	PASSPHRASE    = ""
+// 	TimeoutSecond = 30
+// 	SignType      = constants.SHA256
+// )
 
-	ApiKey        = ""
-	SecretKey     = ""
-	PASSPHRASE    = ""
-	TimeoutSecond = 30
-	SignType      = constants.SHA256
-)
+type Config struct {
+	ApiKey        string
+	SecretKey     string
+	PASSPHRASE    string
+	TimeoutSecond int
+	SignType      string
+	BaseUrl       string
+	WsUrl         string
+}

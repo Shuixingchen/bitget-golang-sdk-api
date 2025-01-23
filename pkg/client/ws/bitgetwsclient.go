@@ -3,6 +3,7 @@ package ws
 import (
 	"strings"
 
+	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/constants"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/common"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/model"
@@ -14,8 +15,8 @@ type BitgetWsClient struct {
 	NeedLogin          bool
 }
 
-func (p *BitgetWsClient) Init(needLogin bool, listener common.OnReceive, errorListener common.OnReceive) *BitgetWsClient {
-	p.bitgetBaseWsClient = new(common.BitgetBaseWsClient).Init()
+func (p *BitgetWsClient) Init(needLogin bool, listener common.OnReceive, errorListener common.OnReceive, config config.Config) *BitgetWsClient {
+	p.bitgetBaseWsClient = new(common.BitgetBaseWsClient).Init(config)
 	p.bitgetBaseWsClient.SetListener(listener, errorListener)
 	p.bitgetBaseWsClient.ConnectWebSocket()
 	p.bitgetBaseWsClient.StartReadLoop()

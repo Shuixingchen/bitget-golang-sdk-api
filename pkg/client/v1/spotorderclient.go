@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/internal"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/common"
 )
@@ -9,8 +10,8 @@ type SpotOrderClient struct {
 	BitgetRestClient *common.BitgetRestClient
 }
 
-func (p *SpotOrderClient) Init() *SpotOrderClient {
-	p.BitgetRestClient = new(common.BitgetRestClient).Init()
+func (p *SpotOrderClient) Init(config config.Config) *SpotOrderClient {
+	p.BitgetRestClient = new(common.BitgetRestClient).Init(config)
 	return p
 }
 

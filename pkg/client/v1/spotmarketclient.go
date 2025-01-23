@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/internal"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/common"
 )
@@ -9,8 +10,8 @@ type SpotMarketClient struct {
 	BitgetRestClient *common.BitgetRestClient
 }
 
-func (p *SpotMarketClient) Init() *SpotMarketClient {
-	p.BitgetRestClient = new(common.BitgetRestClient).Init()
+func (p *SpotMarketClient) Init(config config.Config) *SpotMarketClient {
+	p.BitgetRestClient = new(common.BitgetRestClient).Init(config)
 	return p
 }
 
