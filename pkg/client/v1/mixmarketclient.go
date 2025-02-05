@@ -1,8 +1,8 @@
 package v1
 
 import (
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons/common"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/common"
 )
 
 type MixMarketClient struct {

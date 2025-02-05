@@ -1,9 +1,9 @@
 package client
 
 import (
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons"
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons/common"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/common"
 )
 
 type BitgetApiClient struct {
@@ -16,7 +16,7 @@ func (p *BitgetApiClient) Init(config config.Config) *BitgetApiClient {
 }
 
 func (p *BitgetApiClient) Post(url string, params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}

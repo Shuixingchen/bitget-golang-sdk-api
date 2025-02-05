@@ -1,9 +1,9 @@
 package v2
 
 import (
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons"
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons/common"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/common"
 )
 
 type SpotOrderClient struct {
@@ -17,7 +17,7 @@ func (p *SpotOrderClient) Init(config config.Config) *SpotOrderClient {
 
 // normal order
 func (p *SpotOrderClient) PlaceOrder(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -26,7 +26,7 @@ func (p *SpotOrderClient) PlaceOrder(params map[string]string) (string, error) {
 }
 
 func (p *SpotOrderClient) BatchPlaceOrder(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -35,7 +35,7 @@ func (p *SpotOrderClient) BatchPlaceOrder(params map[string]string) (string, err
 }
 
 func (p *SpotOrderClient) CancelOrder(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -44,7 +44,7 @@ func (p *SpotOrderClient) CancelOrder(params map[string]string) (string, error) 
 }
 
 func (p *SpotOrderClient) BatchCancelOrders(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -69,7 +69,7 @@ func (p *SpotOrderClient) Fills(params map[string]string) (string, error) {
 
 // plan
 func (p *SpotOrderClient) PlacePlanOrder(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -78,7 +78,7 @@ func (p *SpotOrderClient) PlacePlanOrder(params map[string]string) (string, erro
 }
 
 func (p *SpotOrderClient) CancelPlanOrder(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -98,7 +98,7 @@ func (p *SpotOrderClient) OrdersPlanHistory(params map[string]string) (string, e
 
 // trader
 func (p *SpotOrderClient) TraderOrderCloseTracking(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}

@@ -3,10 +3,10 @@ package ws
 import (
 	"strings"
 
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons/common"
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons/model"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/constants"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/common"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/model"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/logging/applogger"
 )
 

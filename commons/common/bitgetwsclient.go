@@ -5,10 +5,10 @@ import (
 	"sync"
 	"time"
 
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons"
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons/model"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/constants"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/model"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/logging/applogger"
 	"github.com/gorilla/websocket"
 	"github.com/robfig/cron"
@@ -67,7 +67,7 @@ func (p *BitgetBaseWsClient) ConnectWebSocket() {
 }
 
 func (p *BitgetBaseWsClient) Login() {
-	timesStamp := internal.TimesStampSec()
+	timesStamp := commons.TimesStampSec()
 	sign := p.Signer.Sign(constants.WsAuthMethod, constants.WsAuthPath, "", timesStamp)
 	if constants.RSA == p.Config.SignType {
 		sign = p.Signer.SignByRSA(constants.WsAuthMethod, constants.WsAuthPath, "", timesStamp)
@@ -103,7 +103,7 @@ func (p *BitgetBaseWsClient) ping() {
 }
 
 func (p *BitgetBaseWsClient) SendByType(req model.WsBaseReq) {
-	json, _ := internal.ToJson(req)
+	json, _ := commons.ToJson(req)
 	p.Send(json)
 }
 
@@ -175,7 +175,7 @@ func (p *BitgetBaseWsClient) ReadLoop() {
 			applogger.Info("Keep connected:" + message)
 			continue
 		}
-		jsonMap := internal.JSONToMap(message)
+		jsonMap := commons.JSONToMap(message)
 
 		v, e := jsonMap["code"]
 

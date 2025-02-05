@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/constants"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/pkg/client"
 	v1 "github.com/Shuixingchen/bitget-golang-sdk-api/pkg/client/v1"
 )
@@ -24,7 +24,7 @@ var conf = config.Config{
 func Test_PlaceOrder(t *testing.T) {
 	client := new(v1.MixOrderClient).Init(conf)
 
-	params := internal.NewParams()
+	params := commons.NewParams()
 	params["symbol"] = "BTCUSDT_UMCBL"
 	params["marginCoin"] = "USDT"
 	params["side"] = "open_long"
@@ -43,7 +43,7 @@ func Test_PlaceOrder(t *testing.T) {
 func Test_post(t *testing.T) {
 	client := new(client.BitgetApiClient).Init(conf)
 
-	params := internal.NewParams()
+	params := commons.NewParams()
 	params["symbol"] = "BTCUSDT_UMCBL"
 	params["marginCoin"] = "USDT"
 	params["side"] = "open_long"
@@ -63,7 +63,7 @@ func Test_get(t *testing.T) {
 
 	client := new(client.BitgetApiClient).Init(conf)
 
-	params := internal.NewParams()
+	params := commons.NewParams()
 	params["productType"] = "umcbl"
 
 	resp, err := client.Get("/api/mix/v1/account/accounts", params)
@@ -76,7 +76,7 @@ func Test_get(t *testing.T) {
 func Test_get_with_params(t *testing.T) {
 	client := new(client.BitgetApiClient).Init(conf)
 
-	params := internal.NewParams()
+	params := commons.NewParams()
 
 	resp, err := client.Get("/api/spot/v1/account/getInfo", params)
 	if err != nil {
@@ -88,7 +88,7 @@ func Test_get_with_params(t *testing.T) {
 func Test_get_with_encode_params(t *testing.T) {
 	client := new(client.BitgetApiClient).Init(conf)
 
-	params := internal.NewParams()
+	params := commons.NewParams()
 	params["symbol"] = "$AIUSDT"
 	params["businessType"] = "spot"
 

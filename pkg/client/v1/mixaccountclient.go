@@ -1,9 +1,9 @@
 package v1
 
 import (
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons"
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons/common"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/common"
 )
 
 type MixAccountClient struct {
@@ -26,7 +26,7 @@ func (p *MixAccountClient) Accounts(params map[string]string) (string, error) {
 }
 
 func (p *MixAccountClient) SetLeverage(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -35,7 +35,7 @@ func (p *MixAccountClient) SetLeverage(params map[string]string) (string, error)
 }
 
 func (p *MixAccountClient) SetMargin(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -44,7 +44,7 @@ func (p *MixAccountClient) SetMargin(params map[string]string) (string, error) {
 }
 
 func (p *MixAccountClient) SetMarginMode(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -53,7 +53,7 @@ func (p *MixAccountClient) SetMarginMode(params map[string]string) (string, erro
 }
 
 func (p *MixAccountClient) SetPositionMode(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}

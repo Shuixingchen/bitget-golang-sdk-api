@@ -1,8 +1,8 @@
 package v1
 
 import (
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/common"
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons"
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons/common"
 )
 
 type SpotWalletApi struct {
@@ -10,7 +10,7 @@ type SpotWalletApi struct {
 }
 
 func (p *SpotWalletApi) Transfer(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -24,7 +24,7 @@ func (p *SpotWalletApi) DepositAddress(params map[string]string) (string, error)
 }
 
 func (p *SpotWalletApi) Withdrawal(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}

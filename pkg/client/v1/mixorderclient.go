@@ -1,9 +1,9 @@
 package v1
 
 import (
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons"
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons/common"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/common"
 )
 
 type MixOrderClient struct {
@@ -17,7 +17,7 @@ func (p *MixOrderClient) Init(config config.Config) *MixOrderClient {
 
 // normal order
 func (p *MixOrderClient) PlaceOrder(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -26,7 +26,7 @@ func (p *MixOrderClient) PlaceOrder(params map[string]string) (string, error) {
 }
 
 func (p *MixOrderClient) BatchPlaceOrder(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -35,7 +35,7 @@ func (p *MixOrderClient) BatchPlaceOrder(params map[string]string) (string, erro
 }
 
 func (p *MixOrderClient) CancelOrder(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -44,7 +44,7 @@ func (p *MixOrderClient) CancelOrder(params map[string]string) (string, error) {
 }
 
 func (p *MixOrderClient) BatchCancelOrders(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -69,7 +69,7 @@ func (p *MixOrderClient) Fills(params map[string]string) (string, error) {
 
 // plan
 func (p *MixOrderClient) PlacePlanOrder(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -78,7 +78,7 @@ func (p *MixOrderClient) PlacePlanOrder(params map[string]string) (string, error
 }
 
 func (p *MixOrderClient) CancelPlanOrder(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -98,7 +98,7 @@ func (p *MixOrderClient) OrdersPlanHistory(params map[string]string) (string, er
 
 // trader
 func (p *MixOrderClient) TraderOrderClosePositions(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}
@@ -117,7 +117,7 @@ func (p *MixOrderClient) TraderOrderHistoryTrack(params map[string]string) (stri
 }
 
 func (p *MixOrderClient) FollowerClosePositions(params map[string]string) (string, error) {
-	postBody, jsonErr := internal.ToJson(params)
+	postBody, jsonErr := commons.ToJson(params)
 	if jsonErr != nil {
 		return "", jsonErr
 	}

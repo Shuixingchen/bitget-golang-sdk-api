@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons/model"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/constants"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/model"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/pkg/client/ws"
 )
 

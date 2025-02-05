@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal/model"
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons/model"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/pkg/client/ws"
 )
 

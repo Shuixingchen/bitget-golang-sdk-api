@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Shuixingchen/bitget-golang-sdk-api/commons"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/config"
 	"github.com/Shuixingchen/bitget-golang-sdk-api/constants"
-	"github.com/Shuixingchen/bitget-golang-sdk-api/internal"
 )
 
 type BitgetRestClient struct {
@@ -35,8 +35,8 @@ func (p *BitgetRestClient) Init(config config.Config) *BitgetRestClient {
 }
 
 func (p *BitgetRestClient) DoPost(uri string, params string) (string, error) {
-	timesStamp := internal.TimesStamp()
-	//body, _ := internal.BuildJsonParams(params)
+	timesStamp := commons.TimesStamp()
+	//body, _ := commons.BuildJsonParams(params)
 
 	sign := p.Signer.Sign(constants.POST, uri, params, timesStamp)
 	if constants.RSA == p.Config.SignType {
@@ -47,7 +47,7 @@ func (p *BitgetRestClient) DoPost(uri string, params string) (string, error) {
 	buffer := strings.NewReader(params)
 	request, err := http.NewRequest(constants.POST, requestUrl, buffer)
 
-	internal.Headers(request, p.ApiKey, timesStamp, sign, p.Passphrase)
+	commons.Headers(request, p.ApiKey, timesStamp, sign, p.Passphrase)
 	if err != nil {
 		return "", err
 	}
@@ -69,8 +69,8 @@ func (p *BitgetRestClient) DoPost(uri string, params string) (string, error) {
 }
 
 func (p *BitgetRestClient) DoGet(uri string, params map[string]string) (string, error) {
-	timesStamp := internal.TimesStamp()
-	body := internal.BuildGetParams(params)
+	timesStamp := commons.TimesStamp()
+	body := commons.BuildGetParams(params)
 	//fmt.Println(body)
 
 	sign := p.Signer.Sign(constants.GET, uri, body, timesStamp)
@@ -81,7 +81,7 @@ func (p *BitgetRestClient) DoGet(uri string, params map[string]string) (string, 
 	if err != nil {
 		return "", err
 	}
-	internal.Headers(request, p.ApiKey, timesStamp, sign, p.Passphrase)
+	commons.Headers(request, p.ApiKey, timesStamp, sign, p.Passphrase)
 
 	response, err := p.HttpClient.Do(request)
 
