@@ -213,7 +213,6 @@ func (p *BitgetBaseWsClient) GetListener(argJson interface{}) OnReceive {
 	}
 
 	v, e := p.ScribeMap[subscribeReq]
-
 	if !e {
 		return p.Listener
 	}

@@ -80,9 +80,6 @@ func toUpperReq(req model.SubscribeReq) model.SubscribeReq {
 	req.InstType = strings.ToUpper(req.InstType)
 	req.InstId = strings.ToUpper(req.InstId)
 	req.Channel = strings.ToLower(req.Channel)
-	if "" == req.Coin {
-		req.Coin = strings.ToLower(req.InstId)
-	}
 	return req
 
 }
